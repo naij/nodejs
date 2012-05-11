@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ajax</title>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="http://a.tbcdn.cn/apps/med/kissy/1.2/kissy-min.js"></script>
+</head>
+<body>
+	<img src="/images/01.jpg" />
+	<script type="text/javascript">
+		KISSY.ready(function(S){
+			S.ajax({
+				type:'get',
+				url : '/ajax',
+				success:function(data){
+					alert(data);
+				}
+			});
+		});
+	</script>
+</body>
