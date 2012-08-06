@@ -1,8 +1,15 @@
-
 /*
- * GET home page.
+ * route
+ * Copyright(c) 2012
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'My blog' });
+/**
+ * Module dependencies.
+ */
+
+var site = require('../controllers/site');
+
+module.exports = function (app) {
+  // home page
+  app.get('/', site.index);
 };

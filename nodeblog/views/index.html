@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>wolongxzg</title>
+<link rel="stylesheet" href="stylesheets/reset.css">
+<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="header-bd">
+            <h1 class="title"><%=title%></h1>
+        </div>
+    </div>
+    <div id="content">
+        <div class="layout">
+            <div class="col-main">
+                <ul class="blog-list">
+                    <%for (var i = 0, l = article.length; i < l; i++) {%>
+                    <li>
+                        <div class="hd">
+                            <h3 class="title"><a href="#"><%=article[i].title%></a></h3>
+                            <p class="publish"><%=article[i].update%></p>
+                        </div>
+                        <div class="bd">
+                            <%=article[i].content%>
+                        </div>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+            <div class="col-sub">
+                
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        
+    </div>
+</body>
+</html>
+
