@@ -10,6 +10,7 @@ function start(request,response){
     '</head>'+
     '<body>'+
     '<form action="/upload" enctype="multipart/form-data" method="post">'+
+    '<input type="text" name="name">'+
     '<input type="file" name="upload" multiple="multiple">'+
     '<input type="submit" value="Upload file" />'+
     '</form>'+
