@@ -14,19 +14,4 @@ mongoose.connect(config.db, function (err) {
 // models
 require('./article');
 
-var Article = mongoose.model('article');
-// var article = new Article();
-// article.title="lalala";
-// article.content="test";
-// article.update="2012-08-07";
-// article.save(function(err){
-//     if(err){
-//         console.log(err);
-//     }
-// });
-//
-// Article.find(function(err,doc){
-//     console.log(doc);
-// });
-
 exports.Article = mongoose.model('article');
