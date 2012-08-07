@@ -3,8 +3,9 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-	routes = require('./routes');
+var express = require('express');
+var routes = require('./routes');
+var ejs = require('ejs');
 
 var app = module.exports = express.createServer();
 
@@ -13,7 +14,8 @@ var app = module.exports = express.createServer();
 app.configure(function(){
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
-    app.register('.html', require('ejs'));
+    app.register('.html', ejs);
+    app.set('view options', {layout: false});
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);

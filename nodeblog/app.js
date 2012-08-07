@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-var express = require('express'), 
-    markdown = require('markdown-js'),
-    routes = require('./routes'),
-    ejs = require('ejs');
+var express = require('express');
+var markdown = require('markdown-js');
+var routes = require('./routes');
+var ejs = require('ejs');
 
 var app = module.exports = express.createServer();
 
