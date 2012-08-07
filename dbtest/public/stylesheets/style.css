@@ -1,20 +1,24 @@
 a { text-decoration: none;color:#333; }
 a:hover { text-decoration: none;color:#08C; }
 
-body{background:#47423C;}
-
 #header{background-color: #000;}
 #header .header-bd{height:70px;width:1000px;margin:0 auto;}
-#header .title{float:left;font-size:24px;color:#FFF;margin-top:16px;}
+#header .title{float:left;font-size:44px;color:#FFF;}
 
-#content{background:#FFF;width:1000px;}
+#content{background:#FFF;width:1000px;margin-top:10px;box-shadow:0px 0px 1px rgba(0,0,0,0.4);}
 
 .col-main{width:660px;padding:20px;}
 .col-sub{width:300px;}
 
+.article-list{}
+.article-list li{border-bottom:1px dashed #ddd;padding:20px 0;}
+.article-list li .title{font-size:18px;}
+.article-list li .publish{color: #999;}
+.article-list li .bd{margin-top:15px;}
 
-.blog-list{}
-.blog-list li{border-bottom:1px dashed #ddd;padding:20px 0;}
-.blog-list li .title{font-size:18px;}
-.blog-list li .publish{color: #999;}
-.blog-list li .bd{margin-top:15px;}
+.article-detail{}
+.article-detail .hd .title{font-size:18px;color:#333;}
+.article-detail .bd{margin-top:15px;}
+
+#footer{width:1000px;margin-top:40px;}
+#footer .footer-bd{border-top:1px solid #efefef;}

@@ -6,7 +6,7 @@ var path = require('path');
 
 exports.config = {
     debug: true,
-    name: 'My Blog',
+    name: '记事本',
     description: 'My Blog',
     version: '0.1',
 

@@ -2,33 +2,52 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><%=title%></title>
-<link rel="stylesheet" href="stylesheets/reset.css">
-<link rel="stylesheet" href="stylesheets/style.css">
+<title><%= title %></title>
+<link rel="stylesheet" href="/stylesheets/reset.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="http://blog.gregwym.info/usr/themes/trapecho/css/bootstrap.min.css">
+<link rel="stylesheet" href="/javascripts/google-code-prettify/prettify.css">
+<script src="/javascripts/google-code-prettify/prettify.js"></script>
+<script src="/javascripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        prettyPrint();
+    });
+</script>
 </head>
 
 <body>
     <div id="header">
         <div class="header-bd">
-            <h1 class="title"><%=title%></h1>
+            <h1 class="title"><%= title %></h1>
         </div>
     </div>
     <div id="content">
         <div class="layout">
             <div class="col-main">
-                <ul class="blog-list">
-                    <%for (var i = 0, l = article.length; i < l; i++) {%>
-                    <li>
-                        <div class="hd">
-                            <h3 class="title"><a href="article/<%=article[i]._id%>"><%=article[i].title%></a></h3>
-                            <p class="publish"><%=article[i].update%></p>
-                        </div>
-                        <div class="bd">
-                            <%=article[i].content%>
-                        </div>
-                    </li>
-                    <%}%>
-                </ul>
+                <div class="article-detail">
+                    <div class="hd">
+                        <h3 class="title"><%= article.title %></h3>
+                    </div>
+                    <div class="bd">
+                        <%= article.content %>
+<pre class="prettyprint linenums">
+&lt;div class="modal hide" id="myModal"&gt;
+    &lt;div class="modal-header"&gt;
+        &lt;button type="button" class="close" data-dismiss="modal"&gt;×&lt;/button&gt;
+        &lt;h3&gt;Modal header&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+        &lt;p&gt;One fine body…&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+        &lt;a href="#" class="btn" data-dismiss="modal"&gt;Close&lt;/a&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Save changes&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                    </div>
+                </div>
             </div>
             <div class="col-sub">
 

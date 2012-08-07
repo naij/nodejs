@@ -1,8 +1,10 @@
 var site = require('../controllers/site');
+var article = require('../controllers/article');
 
 module.exports = function(app) {
-    // home page
+    // 首页
     app.get('/', site.index);
 
-    app.get('article/:aid', site.article);
+    // 文章详情
+    app.get('/article/:aid', article.index);
 }

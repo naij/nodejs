@@ -2,29 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><%=title%></title>
-<link rel="stylesheet" href="stylesheets/reset.css">
-<link rel="stylesheet" href="stylesheets/style.css">
+<title><%= title %></title>
+<link rel="stylesheet" href="/stylesheets/reset.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <div id="header">
         <div class="header-bd">
-            <h1 class="title"><%=title%></h1>
+            <h1 class="title"><%= title %></h1>
         </div>
     </div>
     <div id="content">
         <div class="layout">
             <div class="col-main">
-                <ul class="blog-list">
+                <ul class="article-list">
                     <%for (var i = 0, l = article.length; i < l; i++) {%>
                     <li>
                         <div class="hd">
-                            <h3 class="title"><a href="article/<%=article[i]._id%>"><%=article[i].title%></a></h3>
-                            <p class="publish"><%=article[i].update%></p>
+                            <h3 class="title"><a href="article/<%= article[i]._id %>" target="_blank"><%= article[i].title %></a></h3>
+                            <p class="publish"><%= article[i].update %></p>
                         </div>
                         <div class="bd">
-                            <%=article[i].content%>
+                            <%= article[i].content %>
                         </div>
                     </li>
                     <%}%>
@@ -37,7 +37,9 @@
         </div>
     </div>
     <div id="footer">
-
+        <div class="footer-bd">
+            
+        </div>
     </div>
 </body>
 </html>
