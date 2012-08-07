@@ -1,8 +1,20 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+a { text-decoration: none;color:#333; }
+a:hover { text-decoration: none;color:#08C; }
 
-a {
-  color: #00B7FF;
-}
+body{background:#47423C;}
+
+#header{background-color: #000;}
+#header .header-bd{height:70px;width:1000px;margin:0 auto;}
+#header .title{float:left;font-size:24px;color:#FFF;margin-top:16px;}
+
+#content{background:#FFF;width:1000px;}
+
+.col-main{width:660px;padding:20px;}
+.col-sub{width:300px;}
+
+
+.blog-list{}
+.blog-list li{border-bottom:1px dashed #ddd;padding:20px 0;}
+.blog-list li .title{font-size:18px;}
+.blog-list li .publish{color: #999;}
+.blog-list li .bd{margin-top:15px;}
