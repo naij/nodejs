@@ -6,15 +6,16 @@ a:hover { text-decoration: none;color:#08C;transition:color .15s linear ,backgro
 .box .bd{margin-top:10px;}
 
 
-#header{background-color: #000;}
+#header{background:#000;}
 #header .header-bd{height:70px;width:1000px;margin:0 auto;}
-#header .title{float:left;font-size:44px;color:#FFF;}
+#header .title{float:left;font-size:44px;color:#eee;}
 
-#content{background:#FFF;color:#454545;width:1000px;margin-top:10px;box-shadow:0px 0px 1px rgba(0,0,0,0.4);}
+#content{background:#FFF;color:#454545;width:1000px;margin-top:20px;border:1px solid #efefef;}
 
 .col-main{width:720px;padding:20px;}
 .col-sub{width:200px;padding:20px;}
 
+/* 侧边栏 */
 .side-bar{}
 .side-bar .box .hd{border-bottom:1px solid #eee;}
 .side-bar .box .title{line-height:24px;}
