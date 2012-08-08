@@ -1,5 +1,5 @@
 var models = require('../models');
-var config = require('../config').config;
+var util = require('../libs/util');
 var Article = models.Article;
 
 exports.index = function(req, res, next) {
@@ -15,8 +15,11 @@ exports.index = function(req, res, next) {
             next(err);
         }
 
+        //格式化时间
+        var tempDate = util.format_date(doc.update);
+        doc.publishDate = tempDate;
+
         res.render('article', {
-            title : config.name,
             article : doc
         });
     });

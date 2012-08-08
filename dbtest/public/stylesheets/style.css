@@ -1,24 +1,41 @@
-a { text-decoration: none;color:#333; }
-a:hover { text-decoration: none;color:#08C; }
+a { text-decoration: none;color:#454545; }
+a:hover { text-decoration: none;color:#08C;transition:color .15s linear ,background-color .2s linear;-webkit-transition: color .15s linear , background-color .2s linear;}
+
+.box{margin-bottom: 20px;}
+.box .hd .title{font-weight:normal;}
+.box .bd{margin-top:10px;}
+
 
 #header{background-color: #000;}
 #header .header-bd{height:70px;width:1000px;margin:0 auto;}
 #header .title{float:left;font-size:44px;color:#FFF;}
 
-#content{background:#FFF;width:1000px;margin-top:10px;box-shadow:0px 0px 1px rgba(0,0,0,0.4);}
+#content{background:#FFF;color:#454545;width:1000px;margin-top:10px;box-shadow:0px 0px 1px rgba(0,0,0,0.4);}
 
-.col-main{width:660px;padding:20px;}
-.col-sub{width:300px;}
+.col-main{width:720px;padding:20px;}
+.col-sub{width:200px;padding:20px;}
 
+.side-bar{}
+.side-bar .box .hd{border-bottom:1px solid #eee;}
+.side-bar .box .title{line-height:24px;}
+.side-bar .recent li{margin-bottom:5px;}
+.side-bar .archives li{margin-bottom:5px;}
+.side-bar .tag li{float:left;padding:0 2px;}
+.side-bar .tag li a{float:left;padding:2px 4px;}
+.side-bar .tag li a:hover{border-radius: 4px;background-color: #3FA7CB;color:#fff;}
+
+/* 文章列表 */
 .article-list{}
-.article-list li{border-bottom:1px dashed #ddd;padding:20px 0;}
-.article-list li .title{font-size:18px;}
+.article-list li{border-bottom:1px dashed #ddd;padding-bottom:20px;margin-bottom: 20px;}
+.article-list li .title{font-size:24px;font-weight:normal;}
 .article-list li .publish{color: #999;}
 .article-list li .bd{margin-top:15px;}
 
+/* 文章详情 */
 .article-detail{}
-.article-detail .hd .title{font-size:18px;color:#333;}
+.article-detail .hd .title{font-size:24px;font-weight:normal;}
+.article-detail .hd .publish{color: #999;}
 .article-detail .bd{margin-top:15px;}
 
-#footer{width:1000px;margin-top:40px;}
-#footer .footer-bd{border-top:1px solid #efefef;}
+#footer{border-top:1px solid #efefef;width:1000px;margin-top:40px;padding-top:20px;}
+#footer a{margin:0 10px;}

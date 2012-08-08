@@ -1,5 +1,5 @@
 var article_ctrl = require('./article');
-var config = require('../config').config;
+var util = require('../libs/util');
 //var EventProxy = require('eventproxy').EventProxy;
 
 exports.index = function(req, res, next) {
@@ -8,8 +8,14 @@ exports.index = function(req, res, next) {
             next(err);
         }
 
+        var tempDate = '';
+
+        for(var i=0;i<doc.length;i++){
+            tempDate = util.format_date(doc[i].update);
+            doc[i].publishDate = tempDate;
+        }
+
         res.render('index', {
-            title : config.name,
             article : doc
         });
     });
