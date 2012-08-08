@@ -7,4 +7,8 @@ module.exports = function(app) {
 
     // 文章详情
     app.get('/article/:aid', article.index);
+
+    // 账户
+    app.get('/signin', sign.showLogin);
+    app.post('/signin', sign.login);
 }

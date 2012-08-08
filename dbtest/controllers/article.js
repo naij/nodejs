@@ -19,7 +19,7 @@ exports.index = function(req, res, next) {
         var tempDate = util.format_date(doc.update);
         doc.publishDate = tempDate;
 
-        res.render('article', {
+        res.render('article/article', {
             article : doc
         });
     });
