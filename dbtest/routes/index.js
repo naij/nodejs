@@ -1,5 +1,6 @@
 var site = require('../controllers/site');
 var article = require('../controllers/article');
+var sign = require('../controllers/sign');
 
 module.exports = function(app) {
     // 首页

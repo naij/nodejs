@@ -1,7 +1,7 @@
 <div class="layout">
     <div class="col-main">
         <ul class="article-list">
-            <%for (var i = 0, l = article.length; i < l; i++) {%>
+            <% for (var i = 0, l = article.length; i < l; i++) { %>
             <li>
                 <div class="hd">
                     <h3 class="title"><a href="article/<%= article[i]._id %>" target="_blank"><%= article[i].title %></a></h3>
@@ -11,7 +11,7 @@
                     <%= article[i].content %>
                 </div>
             </li>
-            <%}%>
+            <% } %>
         </ul>
     </div>
     <div class="col-sub side-bar"><%- partial('sidebar') %></div>
