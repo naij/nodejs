@@ -58,15 +58,9 @@ exports.login = function(req, res, next) {
     //             error: '密码错误。'
     //         });
     //     }
-    //     if (!user.active) {
-    //         res.render('sign/signin', {
-    //             error: '此帐号还没有被激活。'
-    //         });
-    //         return;
-    //     }
     //     // store session cookie
     //     gen_session(user, res);
-    //     //check at some page just jump to home page 
+    //     //check at some page just jump to home page
     //     var refer = req.session._loginReferer || 'home';
     //     for (var i = 0, len = notJump.length; i != len; ++i) {
     //         if (refer.indexOf(notJump[i]) >= 0) {
@@ -93,7 +87,7 @@ exports.login = function(req, res, next) {
 //     res.cookie(config.auth_cookie_name, auth_token, {
 //         path: '/',
 //         maxAge: 1000 * 60 * 60 * 24 * 30
-//     }); //cookie 有效期30天      
+//     }); //cookie 有效期30天
 // }
 
 // function encrypt(str, secret) {
