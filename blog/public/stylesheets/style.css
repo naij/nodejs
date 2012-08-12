@@ -36,8 +36,9 @@ input:focus, textarea:focus {
 .union-form .field-radio {vertical-align:middle;margin:0 2px;}
 .union-form .field-checkbox {height:20px;vertical-align:middle;}
 .union-form .field-select {border:1px solid #909090;height:24px;padding:2px;vertical-align:middle;}
-.union-form .field-textarea {border:1px solid #909090;height:80px;width:400px;padding:4px;vertical-align:top;}
+.union-form .field-textarea {height:80px;width:400px;padding:4px;vertical-align:top;}
 .union-form .field-label{display:inline-block;padding-right:20px;width:98px;text-align:right;}
+.union-form .field-label2{margin-bottom: 5px;}
 .union-form .field-set{display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
 .union-form .field-default{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
 .union-form .field .input,
@@ -61,6 +62,8 @@ input:focus, textarea:focus {
 #header{background:#000;}
 #header .header-bd{height:70px;width:1000px;margin:0 auto;}
 #header .title{float:left;font-size:44px;color:#eee;}
+#header .login-info{float:right;color:#eee;background:#333;padding:5px 10px;border-radius:0px 0px 2px 2px;}
+#header .login-info a{color:#eee;}
 
 #content{background:#FFF;color:#454545;width:1000px;margin-top:20px;border:1px solid #efefef;}
 
@@ -79,16 +82,26 @@ input:focus, textarea:focus {
 
 /* 文章列表 */
 .article-list{}
-.article-list li{border-bottom:1px dashed #ddd;padding-bottom:20px;margin-bottom: 20px;}
-.article-list li .title{font-size:24px;font-weight:normal;}
-.article-list li .publish{color: #999;}
-.article-list li .bd{margin-top:15px;}
+.article-list .list-item{border-bottom:1px dashed #ddd;padding-bottom:20px;margin-bottom: 20px;position: relative;}
+.article-list .list-item .title{font-size:24px;font-weight:normal;}
+.article-list .list-item .publish{color: #999;}
+.article-list .list-item .bd{margin-top:15px;}
+.article-list .list-item .ft{position: absolute;right:0px;bottom:2px;}
+.article-list .list-item .ft a{color:#ccc;margin:0 3px;}
 
 /* 文章详情 */
 .article-detail{}
 .article-detail .hd .title{font-size:24px;font-weight:normal;}
 .article-detail .hd .publish{color: #999;}
 .article-detail .bd{margin-top:15px;}
+
+/* 文章编辑 */
+.article-edit{padding:10px;}
+.article-edit .hd{border-bottom:1px solid #eee;margin-bottom:20px;padding-bottom:10px;}
+.article-edit .hd .title{font-size:18px;}
+.article-edit .field-text{width:970px;padding:8px 4px;}
+.article-edit .field-textarea{width:970px;height:700px;}
+.article-edit .field-label2{font-size:14px;}
 
 /* 登录 */
 .signin{padding:10px;}

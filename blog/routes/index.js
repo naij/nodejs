@@ -9,7 +9,12 @@ module.exports = function(app) {
     // 文章详情
     app.get('/article/:aid', article.index);
 
+    // 文章编辑
+    app.get('/edit/:aid', article.showEdit);
+    app.post('/edit',article.edit);
+
     // 账户
     app.get('/signin', sign.showLogin);
     app.post('/signin', sign.login);
+    app.get('/signout', sign.signout);
 }

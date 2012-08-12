@@ -4,10 +4,9 @@
     </div>
     <div class="bd">
         <ul>
-            <li><a href="">forever让nodejs应用后台执行</a></li>
-            <li><a href="">centos 安装 Node.js 0.8.5</a></li>
-            <li><a href="">使用express生成一个空白网站</a></li>
-            <li><a href="">node.js如何读取MySQL数据</a></li>
+            <% for (var i = 0, l = article.length; i < l; i++) { %>
+            <li><a href="article/<%= article[i]._id %>" target="_blank"><%= article[i].title %></a></li>
+            <% } %>
         </ul>
     </div>
 </div>

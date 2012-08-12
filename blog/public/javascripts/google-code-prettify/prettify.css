@@ -18,6 +18,7 @@ pre{
 ol {list-style: decimal;}
 
 .prettyprint {
+    margin:8px 0;
     padding: 8px;
     background-color: #f7f7f9;
     border: 1px solid #e1e1e8;

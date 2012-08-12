@@ -2,13 +2,21 @@
     <div class="col-main">
         <ul class="article-list">
             <% for (var i = 0, l = article.length; i < l; i++) { %>
-            <li>
+            <li class="list-item">
                 <div class="hd">
-                    <h3 class="title"><a href="article/<%= article[i]._id %>" target="_blank"><%= article[i].title %></a></h3>
+                    <h3 class="title">
+                        <a href="article/<%= article[i]._id %>" target="_blank"><%= article[i].title %></a>
+                    </h3>
                     <p class="publish"><%= article[i].publishDate %></p>
                 </div>
                 <div class="bd">
-                    <%= article[i].content %>
+                    <%- article[i].content %>
+                </div>
+                <div class="ft">
+                    <% if (locals.current_user) { %>
+                    <a href="edit/<%= article[i]._id %>" class="edit">编辑</a>
+                    <a href="" class="edit">删除</a>
+                    <% } %>
                 </div>
             </li>
             <% } %>
