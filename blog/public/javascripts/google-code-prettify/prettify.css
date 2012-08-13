@@ -8,6 +8,8 @@
 .pln { color: #48484c; }
 
 pre{
+    line-height:1.5;
+    font-size:12px;
     border-radius: 4px;
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
@@ -15,7 +17,7 @@ pre{
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-ol {list-style: decimal;}
+ol {list-style: decimal inside;}
 
 .prettyprint {
     margin:8px 0;

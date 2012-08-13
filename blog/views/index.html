@@ -14,8 +14,8 @@
                 </div>
                 <div class="ft">
                     <% if (locals.current_user) { %>
-                    <a href="edit/<%= article[i]._id %>" class="edit">编辑</a>
-                    <a href="" class="edit">删除</a>
+                    <a href="articleedit/<%= article[i]._id %>" class="edit">编辑</a>
+                    <a href="articledel/<%= article[i]._id %>" class="edit">删除</a>
                     <% } %>
                 </div>
             </li>

@@ -74,6 +74,59 @@ exports.edit = function(req, res, next){
     });
 }
 
+exports.showAdd = function(req, res, next){
+    if (!req.session.user) {
+        return res.redirect('home');
+    }
+
+    res.render('article/add');
+}
+
+exports.add = function(req, res, next){
+    if (!req.session.user) {
+        return res.redirect('home');
+    }
+
+    var title = sanitize(req.body.title).trim();
+    var content = req.body.content;
+
+    content = markdown.makeHtml(content);
+
+    var article = new Article();
+    article.title = title;
+    article.content = content;
+    article.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        return res.redirect('home');
+    });
+}
+
+
+exports.del = function(req, res, next){
+    var article_id = req.params.aid;
+
+    if (!req.session.user) {
+        return res.redirect('home');
+    }
+
+    if (article_id.length !== 24) {
+        console.log('此话题不存在或已被删除。');
+        return;
+    }
+
+    get_article_by_id(article_id,function(err, doc){
+        if (err) {
+            next(err);
+        }
+
+        doc.remove(function(err){
+            return res.redirect('home');
+        })
+    });
+}
+
 
 function get_article_by_id(id, callback) {
     Article.findOne({_id: id}, function(err, doc) {

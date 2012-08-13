@@ -10,8 +10,15 @@ module.exports = function(app) {
     app.get('/article/:aid', article.index);
 
     // 文章编辑
-    app.get('/edit/:aid', article.showEdit);
-    app.post('/edit',article.edit);
+    app.get('/articleedit/:aid', article.showEdit);
+    app.post('/articleedit',article.edit);
+
+    // 文章添加
+    app.get('/articleadd',article.showAdd);
+    app.post('/articleadd',article.add);
+
+    // 文章删除
+    app.get('/articledel/:aid',article.del);
 
     // 账户
     app.get('/signin', sign.showLogin);
