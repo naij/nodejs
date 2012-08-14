@@ -17,7 +17,8 @@ pre{
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-ol {list-style: decimal inside;}
+
+pre ol{list-style: decimal;}
 
 .prettyprint {
     margin:8px 0;
@@ -34,7 +35,7 @@ ol {list-style: decimal inside;}
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
     margin: 0 0 0 33px; /* IE indents via margin-left */
-} 
+}
 ol.linenums li {
     padding-left: 12px;
     color: #bebec5;
