@@ -17,7 +17,7 @@ pre{
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-ol {list-style: decimal inside;}
+ol {list-style: decimal;}
 
 .prettyprint {
     margin:8px 0;
