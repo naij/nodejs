@@ -85,7 +85,7 @@ input:focus, textarea:focus {
 .side-bar .tag li a:hover{background-color: #00A8FF;color:#fff;}
 .side-bar .weibo a{color:#FFF;display:block;height:24px;line-height:24px;padding-left:10px;background:url(/images/weibo.png);}
 .side-bar .attention .title{background:#292929;}
-.side-bar .attention .pic-link li{margin-bottom:3px;}
+.side-bar .attention .pic-link li{margin-bottom:5px;padding-bottom:5px;border-bottom:1px dashed #E8E8E8;}
 
 
 /* 文章列表 */
