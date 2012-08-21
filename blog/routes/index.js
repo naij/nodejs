@@ -20,6 +20,9 @@ module.exports = function(app) {
     // 文章删除
     app.get('/articledel/:aid',article.del);
 
+    //标签
+    app.get('/tag/:tag',article.tag);
+
     // 账户
     app.get('/signin', sign.showLogin);
     app.post('/signin', sign.login);

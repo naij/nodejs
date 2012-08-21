@@ -26,7 +26,7 @@
                             <li>markdown</li>
                             <li>mongdb</li>
                         </ul>
-                        <input type="hidden" value="javascript">
+                        <input type="hidden" id="tagHidden" name="tag" value="javascript">
                     </li>
                     <li class="field">
                         <div class="input">
@@ -40,7 +40,13 @@
 
     <script type="text/javascript">
         $(function(){
-            $('')
+            $('.tags li').each(function(index,node){
+                $(node).click(function(e){
+                    $('.tags li').removeClass('selected');
+                    $(node).addClass('selected');
+                    $('#tagHidden').val($(node).text());
+                });
+            });
 
             $('#submit').click(function(e){
                 e.preventDefault();

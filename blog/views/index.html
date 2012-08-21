@@ -13,9 +13,12 @@
                     <%- article[i].content %>
                 </div>
                 <div class="ft">
+                    <a href="/tag/<%= article[i].tag %>" class="tag">#<%= article[i].tag %></a>
                     <% if (locals.current_user) { %>
-                    <a href="articleedit/<%= article[i]._id %>" class="edit">编辑</a>
-                    <a href="articledel/<%= article[i]._id %>" class="edit">删除</a>
+                    <div class="edit">
+                        <a href="articleedit/<%= article[i]._id %>">编辑</a>
+                        <a href="articledel/<%= article[i]._id %>">删除</a>
+                    </div>
                     <% } %>
                 </div>
             </li>

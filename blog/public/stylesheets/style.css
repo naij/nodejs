@@ -26,7 +26,9 @@ input:focus, textarea:focus {
 }
 
 .box{margin-bottom: 20px;}
+.box .hd{position:relative;}
 .box .hd .title{font-weight:normal;}
+.box .hd .extra{position:absolute;top:0;right:0;}
 .box .bd{margin-top:10px;}
 
 /* 基本表单 */
@@ -95,12 +97,16 @@ input:focus, textarea:focus {
 
 /* 文章列表 */
 .article-list{}
-.article-list .list-item{border-bottom:1px dashed #ccc;padding-bottom:30px;margin-bottom: 30px;position: relative;}
+.article-list .list-item{border-bottom:1px dashed #ccc;padding-bottom:50px;margin-bottom: 30px;position: relative;}
+.article-list .list-item .hd{position:relative;}
 .article-list .list-item .title{font-size:24px;font-weight:normal;}
-.article-list .list-item .publish{color: #999;}
+.article-list .list-item .publish{color: #999;position:absolute;top:9px;right:0;}
 .article-list .list-item .bd{margin-top:15px;font-size:14px;line-height:1.8;}
-.article-list .list-item .ft{position: absolute;right:0px;bottom:4px;}
-.article-list .list-item .ft a{color:#ccc;margin:0 3px;}
+.article-list .list-item .ft{position:absolute;bottom:10px;left:0;width:720px;}
+.article-list .list-item .ft .tag{font:left;padding:4px;border-radius:2px;background:#eee;color:#898989;}
+.article-list .list-item .ft .edit{float:right;}
+.article-list .list-item .ft .edit a{color:#ccc;margin:0 3px;}
+
 
 /* 文章详情 */
 .article-detail{}

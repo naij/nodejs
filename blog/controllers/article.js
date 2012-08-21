@@ -112,11 +112,13 @@ exports.add = function(req, res, next){
         return res.redirect('home');
     }
 
+    var tag = req.body.tag;
     var title = sanitize(req.body.title).trim();
     var markdownContent = req.body.content;
     var htmlContent = markdown.makeHtml(markdownContent);
 
     var article = new Article();
+    article.tag = tag;
     article.title = title;
     article.content = htmlContent;
     article.markdown = markdownContent;
