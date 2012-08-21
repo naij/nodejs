@@ -154,9 +154,62 @@ exports.del = function(req, res, next){
     });
 }
 
+exports.tag = function(req, res, next){
+    var tag = req.params.tag;
+
+    var render = function(article, recent_article){
+        res.render('index', {
+            article : article,
+            recent_article : recent_article
+        });
+    }
+
+    var proxy = EventProxy.create('article', 'recent_article', render);
+
+    get_article_by_tag(tag,function(err, data){
+        if (err) {
+            next(err);
+        }
+
+        var tempData = [];
+
+        if(data){
+            //格式化时间
+            var tempDate = util.format_date(data.update);
+            data.publishDate = tempDate;
+            tempData = [data];
+        }
+
+        proxy.emit('article',tempData);
+    });
+
+    get_full_article(function(err, data){
+        if (err) {
+            next(err);
+        }
+
+        var tempDate = '';
+
+        for(var i=0;i<data.length;i++){
+            tempDate = util.format_date(data[i].update);
+            data[i].publishDate = tempDate;
+        }
+
+        var recent_article = data.slice(0, 5);
+
+        proxy.emit('recent_article',recent_article);
+    });
+}
 
 function get_article_by_id(id, callback) {
     Article.findOne({_id: id}, function(err, doc) {
+        if (err) return callback(err);
+        callback(null, doc);
+    });
+}
+
+function get_article_by_tag(tag, callback) {
+    Article.findOne({tag: tag}, function(err, doc) {
         if (err) return callback(err);
         callback(null, doc);
     });
