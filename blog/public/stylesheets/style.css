@@ -115,10 +115,12 @@ input:focus, textarea:focus {
 .article-edit .field-text{width:970px;padding:8px 4px;}
 .article-edit .field-textarea{width:970px;height:700px;}
 .article-edit .field-label2{font-size:14px;}
+.article-edit .tags li{float:left;padding:5px 10px;background:#eee;margin:0 10px 10px 0;cursor:pointer;border-radius:2px;}
+.article-edit .tags .selected{background:#00A8FF;color:#FFF;}
 
 /* 登录 */
 .signin{padding:10px;}
-.signin .hd{border-bottom:1px solid #eee;margin-bottom:20px;padding-bottom:10px;}
+.signin .hd{border-bottom:1px solid #ddd;margin-bottom:20px;padding-bottom:10px;}
 .signin .hd .title{font-size:14px;}
 
 
