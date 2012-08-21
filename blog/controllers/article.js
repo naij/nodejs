@@ -1,3 +1,4 @@
+var EventProxy = require('eventproxy').EventProxy;
 var sanitize = require('validator').sanitize;
 var markdown = require('markdown-js');
 var models = require('../models');
@@ -12,18 +13,42 @@ exports.index = function(req, res, next) {
         return;
     }
 
-    get_article_by_id(article_id,function(err, doc){
+    var render = function(article, recent_article){
+        res.render('article/article', {
+            article : article,
+            recent_article : recent_article
+        });
+    }
+
+    var proxy = EventProxy.create('article', 'recent_article', render);
+
+    get_article_by_id(article_id,function(err, data){
         if (err) {
             next(err);
         }
 
         //格式化时间
-        var tempDate = util.format_date(doc.update);
-        doc.publishDate = tempDate;
+        var tempDate = util.format_date(data.update);
+        data.publishDate = tempDate;
 
-        res.render('article/article', {
-            article : doc
-        });
+        proxy.emit('article',data);
+    });
+
+    get_full_article(function(err, data){
+        if (err) {
+            next(err);
+        }
+
+        var tempDate = '';
+
+        for(var i=0;i<data.length;i++){
+            tempDate = util.format_date(data[i].update);
+            data[i].publishDate = tempDate;
+        }
+
+        var recent_article = data.slice(0, 5);
+
+        proxy.emit('recent_article',recent_article);
     });
 };
 
@@ -54,9 +79,8 @@ exports.showEdit = function(req, res, next){
 exports.edit = function(req, res, next){
     var id = sanitize(req.body.id).trim();
     var title = sanitize(req.body.title).trim();
-    var content = req.body.content;
-
-    content = markdown.makeHtml(content);
+    var markdownContent = req.body.content;
+    var htmlContent = markdown.makeHtml(markdownContent);
 
     get_article_by_id(id,function(err, doc){
         if (err) {
@@ -64,7 +88,8 @@ exports.edit = function(req, res, next){
         }
 
         doc.title = title;
-        doc.content = content;
+        doc.content = htmlContent;
+        doc.markdown = markdownContent;
         doc.save(function (err) {
             if (err) {
                 return next(err);
@@ -88,13 +113,13 @@ exports.add = function(req, res, next){
     }
 
     var title = sanitize(req.body.title).trim();
-    var content = req.body.content;
-
-    content = markdown.makeHtml(content);
+    var markdownContent = req.body.content;
+    var htmlContent = markdown.makeHtml(markdownContent);
 
     var article = new Article();
     article.title = title;
-    article.content = content;
+    article.content = htmlContent;
+    article.markdown = markdownContent;
     article.save(function (err) {
         if (err) {
             return next(err);
@@ -136,7 +161,7 @@ function get_article_by_id(id, callback) {
 }
 
 function get_full_article(callback) {
-    Article.find(function(err, doc) {
+    Article.find({},null,{sort:[['update','desc']]},function(err, doc) {
         if (err) return callback(err);
         callback(null, doc);
     });

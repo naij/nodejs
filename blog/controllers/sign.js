@@ -63,7 +63,7 @@ exports.auth_user = function(req, res, next) {
         }
         res.local('current_user', req.session.user);
         return next();
-    } 
+    }
     else {
         var cookie = req.cookies[config.auth_cookie_name];
         if (!cookie) return next();
@@ -82,7 +82,7 @@ exports.auth_user = function(req, res, next) {
                 req.session.user = user;
                 res.local('current_user', req.session.user);
                 return next();
-            } 
+            }
             else {
                 return next();
             }

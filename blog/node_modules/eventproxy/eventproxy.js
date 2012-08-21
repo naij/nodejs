@@ -92,7 +92,7 @@
      * same arguments as `trigger` is, apart from the event name.
      * Listening for `"all"` passes the true event name as the first argument.
      * @param {string} eventName Event name.
-     * @param {mix} data Pass in data. 
+     * @param {mix} data Pass in data.
      */
     EventProxy.prototype.trigger = function (eventName, data) {
         var list, calls, ev, callback, args, i, l;
@@ -133,7 +133,7 @@
         this.bind(ev, wrapper);
         return this;
     };
-    
+
     /**
      * @description Bind an event, and trigger it immediately.
      * @param {string} ev Event name.
@@ -310,7 +310,7 @@
             }
         });
     };
-    
+
     /**
      * Create a new EventProxy
      * @example
@@ -318,13 +318,13 @@
      *     ep.assign('user', 'articles', function(user, articles) {
      *       // do something...
      *     });
-     * 
+     *
      *     // or one line ways: Create EventProxy and Assign
-     *     
+     *
      *     var ep = EventProxy.create('user', 'articles', function(user, articles) {
      *       // do something...
      *     });
-     * 
+     *
      * @returns {EventProxy}
      */
     EventProxy.create = function () {

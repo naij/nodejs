@@ -5,6 +5,7 @@ var ObjectId = Schema.ObjectId;
 var ArticleSchema = new Schema({
     title: { type: String },
     content: { type: String },
+    markdown : {type: String},
     update : { type: Date, default: Date.now }
 });
 
