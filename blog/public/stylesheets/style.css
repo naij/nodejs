@@ -107,11 +107,11 @@ input:focus, textarea:focus {
 .article-list .list-item .ft .edit{float:right;}
 .article-list .list-item .ft .edit a{color:#ccc;margin:0 3px;}
 
-
 /* 文章详情 */
 .article-detail{}
+.article-detail .hd{position:relative;}
 .article-detail .hd .title{font-size:24px;font-weight:normal;}
-.article-detail .hd .publish{color: #999;}
+.article-detail .hd .publish{color: #999;position:absolute;top:9px;right:0;}
 .article-detail .bd{margin-top:15px;font-size:14px;line-height:1.8;}
 
 /* 文章编辑 */

@@ -5,6 +5,12 @@ var models = require('../models');
 var util = require('../libs/util');
 var Article = models.Article;
 
+/**
+ * 根据id获取文章详情
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.index = function(req, res, next) {
     var article_id = req.params.aid;
 
@@ -53,6 +59,12 @@ exports.index = function(req, res, next) {
 };
 
 
+/**
+ * 显示文章编辑页面
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.showEdit = function(req, res, next){
     var article_id = req.params.aid;
 
@@ -76,6 +88,12 @@ exports.showEdit = function(req, res, next){
     });
 }
 
+/**
+ * 获取文章编辑内容并保存到数据库
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.edit = function(req, res, next){
     var id = sanitize(req.body.id).trim();
     var title = sanitize(req.body.title).trim();
@@ -99,6 +117,12 @@ exports.edit = function(req, res, next){
     });
 }
 
+/**
+ * 显示新建文章页面
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.showAdd = function(req, res, next){
     if (!req.session.user) {
         return res.redirect('home');
@@ -107,6 +131,12 @@ exports.showAdd = function(req, res, next){
     res.render('article/add');
 }
 
+/**
+ * 获取新建文章内容并保存到数据库
+ * @param {[type]}   req  [description]
+ * @param {[type]}   res  [description]
+ * @param {Function} next [description]
+ */
 exports.add = function(req, res, next){
     if (!req.session.user) {
         return res.redirect('home');
@@ -130,7 +160,12 @@ exports.add = function(req, res, next){
     });
 }
 
-
+/**
+ * 根据id删除相应的文章
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.del = function(req, res, next){
     var article_id = req.params.aid;
 
@@ -154,6 +189,12 @@ exports.del = function(req, res, next){
     });
 }
 
+/**
+ * 根据标签筛选文章
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ */
 exports.tag = function(req, res, next){
     var tag = req.params.tag;
 
@@ -171,16 +212,12 @@ exports.tag = function(req, res, next){
             next(err);
         }
 
-        var tempData = [];
-
-        if(data){
-            //格式化时间
-            var tempDate = util.format_date(data.update);
-            data.publishDate = tempDate;
-            tempData = [data];
+        for(var i=0;i<data.length;i++){
+            tempDate = util.format_date(data[i].update);
+            data[i].publishDate = tempDate;
         }
 
-        proxy.emit('article',tempData);
+        proxy.emit('article',data);
     });
 
     get_full_article(function(err, data){
@@ -209,7 +246,7 @@ function get_article_by_id(id, callback) {
 }
 
 function get_article_by_tag(tag, callback) {
-    Article.findOne({tag: tag}, function(err, doc) {
+    Article.find({tag: tag}, function(err, doc) {
         if (err) return callback(err);
         callback(null, doc);
     });
