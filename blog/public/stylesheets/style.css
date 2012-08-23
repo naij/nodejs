@@ -101,7 +101,7 @@ input:focus, textarea:focus {
 .article-list .list-item .hd{position:relative;}
 .article-list .list-item .title{font-size:24px;font-weight:normal;}
 .article-list .list-item .publish{color: #999;position:absolute;top:9px;right:0;}
-.article-list .list-item .bd{margin-top:15px;font-size:14px;line-height:1.8;}
+.article-list .list-item .bd{margin-top:15px;line-height:1.8;}
 .article-list .list-item .ft{position:absolute;bottom:10px;left:0;width:720px;}
 .article-list .list-item .ft .tag{font:left;padding:4px;border-radius:2px;background:#eee;color:#898989;}
 .article-list .list-item .ft .edit{float:right;}
@@ -112,7 +112,7 @@ input:focus, textarea:focus {
 .article-detail .hd{position:relative;}
 .article-detail .hd .title{font-size:24px;font-weight:normal;}
 .article-detail .hd .publish{color: #999;position:absolute;top:9px;right:0;}
-.article-detail .bd{margin-top:15px;font-size:14px;line-height:1.8;}
+.article-detail .bd{margin-top:15px;line-height:1.8;}
 
 /* 文章编辑 */
 .article-edit{padding:10px;}
