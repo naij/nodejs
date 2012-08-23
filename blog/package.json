@@ -1,6 +1,11 @@
 {
-    "name": "blog",
+    "name": "notebook",
     "version": "0.0.1",
+    "homepage": "https://github.com/wolongxzg/nodejs",
+    "author": {
+        "name": "wolongxzg",
+        "url": "https://github.com/wolongxzg/nodejs"
+    },
     "private": true,
     "dependencies": {
         "express": "2.5.8",

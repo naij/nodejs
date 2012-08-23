@@ -40,7 +40,7 @@ app.configure('production', function(){
 
 // set static, dynamic helpers
 app.helpers({
-  config: config
+    config: config
 });
 
 // Routes
