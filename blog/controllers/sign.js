@@ -6,6 +6,24 @@ var User = models.User;
 
 
 // Show user login page.
+exports.showInit = function(req, res) {
+    res.render('sign/init');
+};
+
+exports.init = function(req, res, next){
+    var loginname = sanitize(req.body.name).trim().toLowerCase();
+    var pass = sanitize(req.body.pass).trim();
+
+    if (!loginname || !pass) {
+        return res.render('sign/signin', {
+            error: '用户名或者密码错误'
+        });
+    }
+
+    
+}
+
+// Show user login page.
 exports.showLogin = function(req, res) {
     if (req.session.user) {
         res.redirect('home');
