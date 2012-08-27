@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 var config = require('../config').config;
+var db = config.db();
 
-mongoose.connect(config.db, function (err) {
+mongoose.connect(db, function (err) {
     if (err) {
-        console.error('connect to %s error: ', config.db, err.message);
+        console.error('connect to %s error: ', db, err.message);
         process.exit(1);
     }
     else{
-        console.log('connect to "%s" success', config.db);
+        console.log('connect to "%s" success', db);
     }
 });
 
