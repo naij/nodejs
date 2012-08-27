@@ -15,12 +15,19 @@ exports.init = function(req, res, next){
     var pass = sanitize(req.body.pass).trim();
 
     if (!loginname || !pass) {
-        return res.render('sign/signin', {
+        return res.render('sign/init', {
             error: '用户名或者密码错误'
         });
     }
 
-    
+    var user = new User();
+    user.name = "admin";
+    user.loginname = loginname;
+    user.pass = pass;
+    user.save(function(err){
+        if(err) return next(err);
+        res.redirect('home');
+    });
 }
 
 // Show user login page.

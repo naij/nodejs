@@ -28,5 +28,5 @@ module.exports = function(app) {
     app.post('/signin', sign.login);
     app.get('/signout', sign.signout);
     app.get('/initadmin', sign.showInit);
-    app.post('/initadmin', sign.Init);
+    app.post('/initadmin', sign.init);
 }
