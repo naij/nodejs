@@ -1,2 +1,9 @@
-h1= title
-p Welcome to #{title}
+extends layout
+
+block content
+  if msg
+    p #{msg}
+    
+  form(method="post",enctype="multipart/form-data",action="/file-upload")
+    input(type="file" name="video")
+    input(type="submit")

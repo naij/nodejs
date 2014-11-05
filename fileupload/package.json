@@ -1,10 +1,12 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.8"
-    , "jade": ">= 0.0.1"
-    , "markdown-js": ">= 0.0.1"
-  }
+    "name": "fileupload",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.9.0",
+        "body-parser": "1.8.1",
+        "method-override": "2.2.0",
+        "serve-static": "1.6.1",
+        "jade": "1.6.0"
+    }
 }

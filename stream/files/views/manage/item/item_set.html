@@ -1,0 +1,128 @@
+<div class="steps">
+	<ol class="clearfix">
+		<li class="ks-active">1 内容设置</li>
+		<li class="unfinished">2 添加宝贝</li>
+		<li class="unfinished">3 完成</li>
+	</ol>
+</div>
+<div class="item-cnt form-auth">
+    <form action="" id="validatForm" bx-name="validation" bx-path="components/validation/index" bx-tmpl="detail" bx-datakey="detail,typeList,channelList">
+        {{#detail}}
+    	<ul>
+            <li class="field">
+                <label class="field-label">内容ID：</label>
+                <input type="text" class="input" name="id" id="J_contentId" value="{{id}}" {{#id}}disabled{{/id}}>
+            </li>
+            <li class="field">
+                <label class="field-label">内容标题：</label>
+                <input type="text" class="input input-title" name="title" id="J_input_title" placeholder="请输入内容的标题，20字以内" data-valid="{length:[1,20]}" value="{{title}}">
+                <span class="field-count" bx-name="textcount" bx-path="components/textcount/" bx-config="{input: '#J_input_title', count: 20}">0/20</span>
+            </li>
+            <li class="field">
+                <label class="field-label">内容地址：</label>
+                <input type="text" class="input input-url" name="link" data-valid="{trim:true,regex: [/^http:\/\/({{reg}})[a-zA-Z0-9\.\,\?\'\\/\+&amp;%\$#\=~_\-@]*$/,'请输入以&nbsp;http://{{domain}}&nbsp;开头的链接']}" placeholder="请输入以&nbsp;http://{{domain}}&nbsp;开头的链接" value="{{link}}">
+            </li>
+            <li class="field">
+                <label class="field-label">内容类型：</label>
+                <div bx-name="dropdown" class="dropdown" id="J_dropdown_type">
+                    {{#typeList}}
+                        {{#selected}}
+                        <span class="dropdown-hd">
+                            <span class="dropdown-text" value="{{id}}">{{name}}</span>
+                            <i class="iconfont icon-arrow-down">&#459</i>
+                        </span>
+                        <input type="hidden" name="typeId" id="J_typeId" value="{{id}}">
+                        {{/selected}}
+                    {{/typeList}}
+                    <ul class="dropdown-list">
+                        {{#typeList}}
+                        <li class="dropdown-item"><span value="{{id}}">{{name}}</span></li>
+                        {{/typeList}}
+                    </ul>
+                </div>
+                
+            </li>
+            <li class="field">
+                <label class="field-label">所属频道：</label>
+                <div bx-name="dropdown" class="dropdown" id="J_dropdown_channel">
+                    {{#channelList}}
+                        {{#selected}}
+                        <span class="dropdown-hd">
+                            <span class="dropdown-text" value="{{id}}">{{name}}</span>
+                            <i class="iconfont icon-arrow-down">&#459</i>
+                        </span>
+                        <input type="hidden" name="channelId" id="J_channelId" value="{{id}}">
+                        {{/selected}}
+                    {{/channelList}}
+                    <ul class="dropdown-list">
+                        {{#channelList}}
+                        <li class="dropdown-item"><span value="{{id}}">{{name}}</span></li>
+                        {{/channelList}}
+                    </ul>
+                </div>
+            </li>
+            <li class="field">
+                <label class="field-label">内容标签：</label>
+                <div class="field-set">
+                    <div bx-tmpl="tagList" bx-datakey="tagList">
+                        <ul class="tag-cnt clearfix">
+                            {{#tagList}}
+                            <li class="tag-item {{#isActive}}active{{/isActive}}" mx-click="tagSelect{tagId:{{id}}}">{{name}}</li>
+                            {{/tagList}}
+                        </ul>
+                        <input type="hidden" name="tagIds" id="J_tagId" value="{{tagIds}}">
+                        <div class="ux-valid" id="J_tagMsg"><p class="estate"><span class="label"></span></p></div>
+                    </div>
+                    <div class="custom-tags">
+                        <p class="tips">自定义标签(用空格隔开，2-5个标签，每个标签少于2-5个汉字)</p>
+                        <input name="customTags" type="text" class="input" id="J_input_custags" data-valid="{minLength:[2,false]}" placeholder="例:衬衫 帽子" data-messagebox='#J_custagMsg' value="{{customTags}}">
+                        <div class="ux-valid" id="J_custagMsg"><p class="estate"><span class="label"></span></p></div>
+                    </div>
+                </div>
+            </li>
+            <li class="field">
+                <label class="field-label">内容描述：</label>
+                <div class="field-set">
+                    <textarea class="textarea item-desc" name="desc" id="J_input_desc" data-valid="{}" placeholder="输入该内容的描述，200字以内">{{desc}}</textarea>
+                    <div class="textarea-count field-count" bx-name="textcount" bx-path="components/textcount/" bx-config="{input: '#J_input_desc', count: 200}">0/200</div>
+                </div>
+            </li>
+            <li class="field">
+                <label class="field-label">展示图片：</label>
+                <div class="field-set" bx-tmpl="cover" bx-datakey="hasUpload,cover,images">
+                    {{^hasUpload}}
+                    <span class="btn btn-size25 btn-disabled">浏览文件</span>
+                    {{/hasUpload}}
+                    {{#hasUpload}}
+                    <a href="javascript:;" class="btn btn-size25" id="J_iframe_upload">浏览文件</a>
+                    {{/hasUpload}}
+                    <p class="color-grey" style="margin-top:5px;">最小不低于 500*500像素，建议使用：500*800像素；比例为1:1.6，  图片大小限制在1M以内</p>
+                    <ul class="preview-list clearfix">
+                        <li class="preview">
+                            {{^cover}}<em>主图</em>{{/cover}}
+                            {{#cover}}
+                            <img src="{{url}}_80x80.jpg">
+                            <span class="del-btn iconfont" mx-click="del{index:4}">&#223</span>
+                            <input type="hidden" name="cover" id="J_mainImg" value="{{filename}}">
+                            {{/cover}}
+                        </li>
+                        {{#images}}
+                        <li class="preview">
+                            {{^filename}}<em>附图</em>{{/filename}}
+                            {{#filename}}
+                            <img src="{{url}}_80x80.jpg">
+                            <span class="del-btn iconfont" mx-click="del{index:{{__index__}}}">&#223</span>
+                            {{/filename}}
+                        </li>
+                        {{/images}}
+                    </ul>
+                    <div class="ux-valid" id="J_mainImgMsg"><p class="estate error"><span class="label"></span></p></div>
+                </div>
+            </li>
+            {{/detail}}
+        </ul>
+        <p>
+            <a href="#" mx-click="submit" class="btn btn-blue btn-size40">下一步</a>
+        </p>
+    </form>
+</div>

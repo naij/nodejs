@@ -1,0 +1,53 @@
+<div class="table-container" id="J_item_list">
+    <div class="wrap-hd clearfix">
+        <div class="title-bar">
+            <h2 class="title">内容管理</h2>
+        </div>
+    </div>
+
+    <div class="table-head-fix">
+        <div class="toolbar clearfix">
+            <a href="#!/manage/item/item_promo" class="btn btn-size25">新增内容</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr {{^list}}class="no-data"{{/list}}>
+                    <th class="left" width="20%">内容标题</th>
+                    <th class="left" width="10%">内容ID</th>
+                    <th class="left" width="40%">URL地址</th>
+                    <th class="left" width="10%">审核状态</th>
+                    <th class="center" width="20%">操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <table class="table" bx-name="tables" bx-tmpl="list" bx-datakey="list">
+        <tbody>
+            {{#list}}
+            <tr>
+                <td class="left" width="20%">{{title}}</td>
+                <td class="left" width="10%">{{id}}</td>
+                <td class="left" width="40%">
+                    <a href="{{link}}" target="_blank">{{link}}</a>
+                </td>
+                <td class="left" width="10%">{{{list_status}}}</td>
+                <td class="center" width="20%">
+                    <p class="operation">
+                        <a href="#!/manage/item/item_promo?id={{id}}">编辑</a>
+                        <span class="divide">|</span>
+                        <a href="#" mx-click="del{id:{{id}}}">删除</a>
+                    </p>
+                </td>
+            </tr>
+            {{/list}}
+            {{^list}}
+            <tr class="none">
+                <td colspan="5">暂无数据</td>
+            </tr>
+            {{/list}}
+        </tbody>
+    </table>
+    <div class="tfoot">
+        <div id="J_item_pagination" bx-name="pagination" class="pagination weibo-items" bx-config="{count:{{pageCount}},index:{{pageNo}},size:{{pageSize}},sizes:[10],simplify:true,statistics:true,sizeChange:true,jump:true,goTo:false}">
+    </div>
+</div>

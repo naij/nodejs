@@ -1,0 +1,13 @@
+<div>
+	<ul class="table-title table-title-extra clearfix" bx-tmpl="countType" bx-datakey="countType">
+        <li class="{{#if(countType==1)}}selected{{/if(countType==1)}}" mx-click="showTab{countType:1}">
+            <h2><a href="#" hidefocus="true">流量统计</a></h2>
+        </li>
+        <li class="{{#if(countType==2)}}selected{{/if(countType==2)}}" mx-click="showTab{countType:2}">
+            <h2><a href="#" hidefocus="true">个性统计</a></h2>
+        </li>
+    </ul>
+    <vframe id="magix_vf_items_media">
+	    <div class="wrap-loading"></div>
+	</vframe>
+</div>

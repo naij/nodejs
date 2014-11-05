@@ -1,0 +1,97 @@
+<div class="jifen-container">
+    <div class="jifen-nav">
+        <div class="left">
+            <ul class="float">
+                <li class="current">
+                    <a href="#!/manage/jifen/my">我的积分</a>
+                </li>
+                <li>
+                    <a href="#!/manage/jifen/detail">积分明细</a>
+                </li>
+                <!--li>
+                    <a href="#!/manage/jifen/config">积分配置</a>
+                </li-->
+            </ul>
+        </div>
+        <div class="right">
+            <ul class="float">
+                <li>来源：{{source}}</li>
+                <li>站点：{{sitename}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="detail-bar">
+        <div>
+            <span class="per-detail">积分总量：<span class="jifen_total">{{total}}</span></span>
+            <span class="per-detail">积分剩余总量：<span class="jifen_remainder">{{remainderTotal}}</span></span>
+        </div>
+        <div>
+            <span class="per-detail">积分已发放总量：<span class="jifen_gave">{{gaveTotal}}</span></span>
+            <span class="per-detail">积分失效总量：<span class="jifen_invalid">{{invalidTotal}}</span></span>
+        </div>
+    </div>
+    <div class="srch-bar">
+        <form class="J_Form">
+            <span>积分创建时间</span><input value="{{startTime}}" class="J_Calendar J_start">
+            <span>积分失效时间</span><input value="{{endTime}}" class="J_Calendar J_end">
+            <a class="srch-btn btn" mx-click="search">搜索</a>
+            <button class="new-jifen" type="button" mx-click="createfen">新建积分</button>
+        </form>
+    </div>
+    <div class="table-content table-container">
+        <table class="table">
+            <thead>
+            <tr {{^list}}class="no-data"{{/list}}>
+            <th class="left" width="8%"></th>
+            <th class="left" width="10%">积分ID</th>
+            <th class="left" width="10%">积分总量</th>
+            <th class="left" width="17%">积分创建时间</th>
+            <th class="left" width="13%">剩余积分</th>
+            <th class="left" width="17%">积分失效时间</th>
+            <th class="left" width="10%">状态</th>
+            <th class="left" width="auto"></th>
+            </tr>
+            </thead>
+        </table>
+        <table class="table" bx-name="tables" bx-tmpl="list" bx-datakey="list">
+            <tbody>
+            {{#list}}
+            <tr>
+                <td width="8%" class="left">
+                    <input class="J_check {{{list_hide}}}" type="checkbox" mx-click="checkInput{id:{{id}}}">
+                </td>
+                <td width="10%" class="left jifen-id" id="{{id}}">{{id}}</td>
+                <td width="10%" class="left">{{gave}}</td>
+                <td width="17%" class="left">{{gmtCreate}}</td>
+                <td width="13%" class="left"><span class="red">{{remainder}}</span></td>
+                <td width="17%" class="left">{{gmtEnd}}</td>
+                <td width="10%" class="left">{{{list_status}}}</td>
+                <td width="auto" class="left">{{{list_opt}}}</td>
+            </tr>
+            {{/list}}
+            {{^list}}
+            <tr class="none">
+                <td colspan="8">暂无数据</td>
+            </tr>
+            {{/list}}
+            </tbody>
+        </table>
+        <div class="tfoot">
+            <div id="J_item_pagination" class="pagination">
+                <div class="pagination-left">
+                    <input class="J_disable_all" type="checkbox" mx-click="checkInput{id:-1}}">
+                    <span>全部</span>
+                    <a class="btn" mx-click="disableAll">停止发放</a>
+                </div>
+                <div class="pagination-pages">
+                    <div class="pagination-page"><span class="page-simply">{{currentPage}}/{{totalPage}}</span></div>
+                    <div class="pagination-count"><span>共</span><span class="b">{{totalPage}}</span><span>页</span></div>
+                    <div class="pagination-form">
+                        <span>向第</span><input class="page-num" value="{{currentPage}}" name="page" type="text"><span>页</span>
+                        <a class="btn-jump btn btn-size25" mx-click="jump">跳转</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

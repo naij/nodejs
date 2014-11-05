@@ -1,0 +1,84 @@
+<div class="jifen-container">
+    <div class="jifen-nav">
+        <div class="left">
+            <ul class="float">
+                <li>
+                    <a href="#!/manage/jifen/my">我的积分</a>
+                </li>
+                <li class="current">
+                    <a href="#!/manage/jifen/detail">积分明细</a>
+                </li>
+                <!--li>
+                    <a href="#!/manage/jifen/config">积分配置</a>
+                </li-->
+            </ul>
+        </div>
+        <div class="right">
+            <ul class="float">
+                <li>来源：{{source}}</li>
+                <li>站点：{{sitename}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="srch-bar">
+        <form class="J_Form">
+            <span>买家混淆Nick</span><input value="{{nick}}" class="J_Nick" maxlength="70">
+            <span>来源</span><input value="{{reason}}" class="J_ID">
+            <span>积分发放时间</span><input value="{{time}}" class="J_Calendar">
+            <a class="srch-btn btn" mx-click="search">搜索</a>
+            <a class="btn J_export" data-href="/sitemanager/manage/points/historyDump.htm?" href="/sitemanager/manage/points/historyDump.htm?" style="margin-left: 10px;">导出</a>
+        </form>
+    </div>
+    <div class="table-content table-container">
+        <table class="table">
+            <thead>
+            <tr {{^list}}class="no-data"{{/list}}>
+            <th class="left" width="10%">积分ID</th>
+            <th class="left" width="20%">买家混淆Nick</th>
+            <th class="left" width="15%">来源</th>
+            <th class="left" width="15%">发放时间</th>
+            <th class="left" width="15%">发放积分</th>
+            <th class="left" width="25%">备注</th>
+            </tr>
+            </thead>
+        </table>
+        <table class="table" bx-name="tables" bx-tmpl="list" bx-datakey="list">
+            <tbody>
+            {{#list}}
+            <tr>
+                <td width="10%" class="left" class="jifen-id" id="{{id}}">{{id}}</td>
+                <td width="20%" class="left td-MixNick" title="{{userMixedNick}}">{{userMixedNick}}</td>
+                <td width="15%" class="left">{{reason}}</td>
+                <td width="15%" class="left">{{gmtCreate}}</td>
+                <td width="15%" class="left">{{{list_status}}}</td>
+                <td width="25%" class="left td-MixNick" title="{{memo}}">{{memo}}</td>
+            </tr>
+            {{/list}}
+            {{^list}}
+            <tr class="none">
+                <td colspan="8">暂无数据</td>
+            </tr>
+            {{/list}}
+            </tbody>
+        </table>
+        <div class="tfoot">
+            <div id="J_item_pagination" class="pagination weibo-items">
+                <div class="pagination-info">
+                    <span>当前</span><span class="b">0-0</span><span>条</span>
+                    <span class="mr">共</span><span class="b totalItem">{{totalItem}}</span><span>条</span>
+                    <span class="mr">每页展现</span>
+                    <div class="dropdown" tabindex="0"><span class="dropdown-hd"><span class="dropdown-text" value="0">10</span></span>
+                    </div>
+                    <span>条</span></div>
+                <div class="pagination-pages">
+                    <div class="pagination-page"><span class="page-simply">{{currentPage}}/{{totalPage}}</span></div>
+                    <div class="pagination-count"><span>共</span><span class="b totalPage">{{totalPage}}</span><span>页</span></div>
+                    <div class="pagination-form">
+                        <span>向第</span><input class="page-num" value="{{currentPage}}" name="page" type="text"><span>页</span>
+                        <a class="btn-jump btn btn-size25" mx-click="jump">跳转</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

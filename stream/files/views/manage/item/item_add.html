@@ -1,0 +1,38 @@
+<div class="steps">
+	<ol class="clearfix">
+		<li class="finished">1 内容设置</li>
+		<li class="ks-active">2 添加宝贝</li>
+		<li class="unfinished">3 完成</li>
+	</ol>
+</div>
+<div class="item-cnt form-auth">
+    <form action="" id="validatForm" bx-name="validation" bx-path="components/validation/index">
+    	<ul>
+            <li class="field" bx-tmpl="url" bx-datakey="list">
+                <label class="field-label">宝贝链接：</label>
+                <input type="text" class="input input-url mr10" id="J_itemUrl" placeholder="复制要推广的宝贝链接" data-messagebox='#J_urlMsg' value="{{url}}">最多可添加30个宝贝
+                <div class="ux-valid" id="J_urlMsg"><p class="estate error"><span class="label"></span></p></div>
+            </li>
+        </ul>
+        <p>
+        	<a href="#" mx-click="add" class="btn btn-size30 item-add-btn">添加</a>
+        </p>
+    </form>
+    <div class="item-list">
+    	<h2>已添加的宝贝</h2>
+    	<span class="divide-line"></span>
+    	<ul class="clearfix" bx-tmpl="list" bx-datakey="list">
+    		{{#list}}
+    		<li>
+    			<a href="{{url}}" target="_blank">
+    				<img src="{{image}}_80x80.jpg" width="80" height="80">
+    			</a>
+    			<span class="del-btn iconfont" mx-click="del{itemId:{{itemId}}}">&#223</span>
+    		</li>
+    		{{/list}}
+    	</ul>
+    </div>
+    <p style="margin-top:30px;">
+        <a href="#" mx-click="submit" class="btn btn-blue btn-size40">下一步</a>
+    </p>
+</div>

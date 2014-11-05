@@ -1,0 +1,50 @@
+<div class="table-container" id="J_item_list">
+	<div class="table-head-fix">
+        <div class="toolbar clearfix" bx-tmpl="query" bx-datakey="query">
+            {{#query}}
+            <a href="#" class="btn" id="J_calendar"> {{start}} 至 {{end}} </a>
+            <div class="btn table-settings" id="J_download">
+                <a class="iconfont" href="/sitemanager/statistics/custom/download.htm?start={{start}}&end={{end}}">&#320;下载报表</a>
+            </div>
+            {{/query}}
+        </div>
+        <table class="table" bx-tmpl="sort" bx-datakey="list">
+            <thead>
+                <tr {{^list}}class="no-data"{{/list}}>
+                    <th class="left" width="10%">时间</th>
+                    <th class="left" width="20%">域名</th>
+                    <th class="left" width="15%">自定义A</th>
+                    <th class="left" width="15%">自定义B</th>
+                    <th class="left" width="10%">点击数</th>
+                    <th class="left" width="10%">成交笔数</th>
+                    <th class="right" width="10%">成交金额</th>
+                    <th class="right" width="10%">预估收入</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <table class="table" bx-name="tables" bx-tmpl="list" bx-datakey="list">
+        <tbody>
+            {{#list}}
+            <tr>
+                <td class="left" width="10%">{{date}}</td>
+                <td class="left" width="20%">{{domain}}</td>
+                <td class="left" width="15%">{{field1}}</td>
+                <td class="left" width="15%">{{field2}}</td>
+                <td class="left" width="10%">{{click}}</td>
+                <td class="left" width="10%">{{dealCount}}</td>
+                <td class="right" width="10%">￥{{dealMoney}}</td>
+                <td class="right" width="10%">￥{{expectIncome}}</td>
+            </tr>
+            {{/list}}
+            {{^list}}
+            <tr class="none">
+                <td colspan="7">对不起，您还没有个性统计数据。</td>
+            </tr>
+            {{/list}}
+        </tbody>
+    </table>
+    <div class="tfoot">
+        <div id="J_item_pagination" bx-name="pagination" class="pagination" bx-config="{count:{{pageCount}},index:{{pageNo}},size:{{pageSize}},sizes:[10],simplify:true,statistics:true,sizeChange:true,jump:true,goTo:false}">
+    </div>
+</div>

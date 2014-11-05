@@ -1,0 +1,16 @@
+<div>
+    <ul class="table-title table-title-extra clearfix" bx-tmpl="mediaType" bx-datakey="mediaType">
+        <li class="{{#if(mediaType==1)}}selected{{/if(mediaType==1)}}" mx-click="showTab{mediaType:1}">
+            <h2><a href="#" hidefocus="true">图片管理</a></h2>
+        </li>
+        <li class="{{#if(mediaType==2)}}selected{{/if(mediaType==2)}}" mx-click="showTab{mediaType:2}">
+            <h2><a href="#" hidefocus="true">Flash管理</a></h2>
+        </li>
+        <li>
+            <h2><a href="http://ugc.taobao.com" hidefocus="true" target="_blank">视频管理</a></h2>
+        </li>
+    </ul>
+    <vframe id="magix_vf_items_media">
+	    <div class="wrap-loading"></div>
+	</vframe>
+</div>

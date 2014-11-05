@@ -1,0 +1,63 @@
+<div class="table-container" bx-name="checkall" bx-path="components/checkall/" id="J_item_list">
+	<div class="table-head-fix">
+        <div class="toolbar clearfix">
+            <label class="all-check">
+                <input type="checkbox" class="check-trigger" />
+                <span class="valign-m ml10">全选</span>
+            </label>
+            <span bx-tmpl="nid" bx-datakey="nid" class="delete-btn">
+                <label class="del-wrap" {{^nid}}style="display: none;"{{/nid}}>
+                    <span class="divide"></span><a href="#" class="delete" mx-click="del{id:{{nid}}}">删除</a>
+                </label>
+            </span>
+            <button class="btn btn-size25 ml10" id="J_UploaderBtn">新增Flash</button>
+            <a href="/sitemanager/aitaobao/help.htm?bizType={{bizType}}" target="_blank" class="flash-standard">Flash规范</a>
+        </div>
+        <table class="table" bx-tmpl="sort" bx-datakey="list">
+            <thead>
+                <tr {{^list}}class="no-data"{{/list}}>
+                    <th class="left" width="15"></th>
+                    <th class="left">视频信息</th>
+                    <th class="left" width="80">类型</th>
+                    <th class="left" width="120">大小</th>
+                    <th class="left" width="120">上传日期</th>
+                    <th class="center" width="200">操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <table class="table" bx-name="tables" bx-tmpl="list" bx-datakey="list">
+        <tbody>
+            {{#list}}
+            <tr>
+                <td class="left" width="15">
+                    <input type="checkbox" value="{{id}}" class="check-item" />
+                </td>
+                <td>
+                    <div class="list-group flash-group">
+                        <div class="title">{{name}}</div>
+                    </div>
+                </td>
+                <td class="left" width="80">{{type}}</td>
+                <td class="left" width="120">{{size}}</td>
+                <td class="left" width="120">{{{list_fileModified}}}</td>
+                <td class="center" width="200">
+                    <p class="operation">
+                        <a href="#" mx-click="code{url:{{url}}}">获取链接</a>
+                        <span class="divide">|</span>
+                        <a href="#" class="del" mx-click="del{id:{{id}}}">删除</a>
+                    </p>
+                </td>
+            </tr>
+            {{/list}}
+            {{^list}}
+            <tr class="none">
+                <td colspan="7">对不起，您还没有上传Flash。</td>
+            </tr>
+            {{/list}}
+        </tbody>
+    </table>
+    <div class="tfoot">
+        <div id="J_item_pagination" bx-name="pagination" class="pagination" bx-config="{count:{{pageCount}},index:{{pageNo}},size:{{pageSize}},sizes:[10],simplify:true,statistics:true,sizeChange:true,jump:true,goTo:false}">
+    </div>
+</div>
