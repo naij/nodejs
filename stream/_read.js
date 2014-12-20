@@ -6,7 +6,8 @@ var server = http.createServer(function (req, res) {
         var rs = new Readable();
         var c = 97;
         rs._read = function () {
-            rs.push(c++ + ' ');
+            rs.push('微');
+            c++;
             if (c > 99) rs.push(null);
         };
          
